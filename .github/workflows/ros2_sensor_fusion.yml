@@ -21,9 +21,9 @@ jobs:
       options: --user root
 
       env:
+        ORPHEUS_BUILD_DIR: ${{github.workspace}}/orpheus
         ROS_DISTRO: jazzy
         DEBIAN_FRONTEND: noninteractive
-        COLCON_DEFAULTS_FILE: /github/workspace/colcon.defaults.yaml
 
     steps:
       - name: Checkout repository
@@ -35,12 +35,15 @@ jobs:
           ros-${ROS_DISTRO}-imu-tools
 
       - name: Source ROS and build workspace
+        shell: bash
         run: |
+          cd ${ORPHEUS_BUILD_DIR}
           source /opt/ros/${ROS_DISTRO}/setup.sh
-          colcon build --event-handlers console_cohesion+
+          colcon build
 
       - name: Run tests
+        shell: bash
         run: |
-          source install/setup.sh
+          source ${ORPHEUS_BUILD_DIR}/install/local_setup.sh
           colcon test
           colcon test-result --verbose
