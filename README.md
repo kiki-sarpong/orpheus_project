@@ -32,8 +32,8 @@ colcon test-result --verbose
 ```
 
 ### Output sample
-![image](?raw=true)
-![image](?raw=true)
+![image](https://github.com/kiki-sarpong/orpheus_project/blob/main/images/terminal_output_1.png?raw=true)
+![image](https://github.com/kiki-sarpong/orpheus_project/blob/main/images/terminal_output_2.png?raw=true)
 
 ### Project details
 - Project deliverable consists of 1 publishers and two subscribers.
