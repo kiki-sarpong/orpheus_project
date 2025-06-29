@@ -21,7 +21,7 @@ jobs:
       options: --user root
 
       env:
-        ORPHEUS_BUILD_DIR: ${{github.workspace}}/orpheus
+        ORPHEUS_BUILD_DIR: ${{github.workspace}}/orpheus_ocean
         ROS_DISTRO: jazzy
         DEBIAN_FRONTEND: noninteractive
 
