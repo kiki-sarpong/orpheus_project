@@ -1,0 +1,5 @@
+# Ignore OS-specific files (macOS, Windows, Linux)
+.git
+.DS_Store
+.vscode
+.gitignore

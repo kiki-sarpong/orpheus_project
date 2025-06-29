@@ -1,0 +1,48 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+# macOS System Files
+.DS_Store
+
+# Thumbnails and icon files
+Icon
+
+# macOS Finder settings
+._*
+
+# macOS file system metadata
+*.swp
+
+# Build dir
+notes.md
+coding_challenge_orpheus.pdf
+.vscode/
