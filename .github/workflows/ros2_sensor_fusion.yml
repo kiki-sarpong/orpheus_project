@@ -32,7 +32,9 @@ jobs:
       - name: Setup dependencies
         run: |
           apt-get update && apt-get install -y \
-          ros-${ROS_DISTRO}-imu-tools
+          ros-${ROS_DISTRO}-imu-tools \
+          ros-${ROS_DISTRO}-ament-cmake-test \
+          ros-${ROS_DISTRO}-rcl-interfaces
 
       - name: Source ROS and build workspace
         shell: bash
