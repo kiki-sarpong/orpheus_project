@@ -35,6 +35,7 @@ jobs:
             ros-${ROS_DISTRO}-imu-tools \
             ros-${ROS_DISTRO}-ament-cmake-test \
             python3-rosdep
+          mkdir -p src
           rosdep update
           rosdep install --from-paths src --ignore-src -r -y
 
