@@ -1,0 +1,46 @@
+# This starter workflow for running ros2 jazzy
+
+name: orpheus_project
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  my_build:
+    runs-on: ubuntu-latest
+    
+    container:
+      image: ros:jazzy
+      options: --user root
+
+      env:
+        ROS_DISTRO: jazzy
+        DEBIAN_FRONTEND: noninteractive
+        COLCON_DEFAULTS_FILE: /github/workspace/colcon.defaults.yaml
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup dependencies
+        run: |
+          apt-get update && apt-get install -y \
+          ros-${ROS_DISTRO}-imu-tools
+
+      - name: Source ROS and build workspace
+        run: |
+          source /opt/ros/${ROS_DISTRO}/setup.sh
+          colcon build --event-handlers console_cohesion+
+
+      - name: Run tests
+        run: |
+          source install/setup.sh
+          colcon test
+          colcon test-result --verbose
