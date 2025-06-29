@@ -21,7 +21,7 @@ jobs:
       options: --user root
 
       env:
-        ORPHEUS_BUILD_DIR: ${{github.workspace}}/orpheus_ocean
+        # ORPHEUS_BUILD_DIR: ${{github.workspace}}/orpheus_ocean
         ROS_DISTRO: jazzy
         DEBIAN_FRONTEND: noninteractive
 
@@ -37,15 +37,12 @@ jobs:
       - name: Source ROS and build workspace
         shell: bash
         run: |
-          pwd
-          ls -la
-          # cd ${ORPHEUS_BUILD_DIR}
           source /opt/ros/${ROS_DISTRO}/setup.sh
           colcon build
 
-      - name: Run tests
+      - name: Run orpheus tests
         shell: bash
         run: |
-          source ${ORPHEUS_BUILD_DIR}/install/local_setup.sh
+          source install/local_setup.sh
           colcon test
           colcon test-result --verbose
