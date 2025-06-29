@@ -37,8 +37,9 @@ jobs:
       - name: Source ROS and build workspace
         shell: bash
         run: |
+          pwd
           ls -la
-          cd ${ORPHEUS_BUILD_DIR}
+          # cd ${ORPHEUS_BUILD_DIR}
           source /opt/ros/${ROS_DISTRO}/setup.sh
           colcon build
 
